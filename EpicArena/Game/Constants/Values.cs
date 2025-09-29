@@ -5,7 +5,6 @@ namespace TimeToBeEpic.Game.Constants
     public static class Values
     {
         // UNITS START STATS
-
         public const int MIN_RANDOM_STAT_VALUE = 1;
         public const int MAX_RANDOM_STAT_VALUE = 3;
         public const int MAX_HERO_LEVEL = 3;

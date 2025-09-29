@@ -1,0 +1,137 @@
+{
+  "Colors": {
+    "Background": "Black",
+    "Hero": "Green",
+    "Enemy": "Red",
+    "Heading": "DarkRed",
+    "Info": "DarkGreen",
+    "Notification": "DarkGray",
+    "Neutral": "DarkGray",
+    "Loot": "Cyan",
+    "InputWaiting": "Yellow",
+    "Warning": "DarkYellow",
+    "Question": "DarkYellow"
+  },
+  "Texts": {
+    "WELCOME": {
+      "Text": "WELCOME to EPIC ARENA",
+      "Color": "Heading"
+    },
+    "START_ABILITIES": {
+      "Text": "START ABILITIES",
+      "Color": "Notification"
+    },
+    "RANDOM_STATS": {
+      "Text": "  {0} Strenght    {1} Agility     {2} Stamina",
+      "Color": "Info"
+    },
+    "CHOOSE_DESTINY": {
+      "Text": "CHOOSE YOUR DESTINY",
+      "Color": "Question"
+    },
+    "HERO_VARIANTS": {
+      "Text": "  <- Rogue    v Warrior    -> Barbarian",
+      "Color": "InputWaiting"
+    },
+    "LETS_EPIC_COMBAT_BEGIN": {
+      "Text": "Let's EPIC COMBAT begin",
+      "Color": "Heading"
+    },
+    "ROUND": {
+      "Text": "ROUND {0}",
+      "Color": "Warning"
+    },
+    "HERO_PRIORITY": {
+      "Text": "{0} goes first!",
+      "Color": "Hero"
+    },
+    "ENEMY_PRIORITY": {
+      "Text": "{0} goes first!",
+      "Color": "Enemy"
+    },
+    "HERO_BATTLE_STATS": {
+      "Text": "{0}  {1}",
+      "Color": "Hero"
+    },
+    "ENEMY_BATTLE_STATS": {
+      "Text": "{0}  {1}",
+      "Color": "Enemy"
+    },
+    "ATTACK_ZONE": {
+      "Text": "   =====(!)=====   ",
+      "Color": "Neutral"
+    },
+    "HERO_ATTACK": {
+      "Text": "   =====({0})>>>>>   ",
+      "Color": "Hero"
+    },
+    "HERO_MISS": {
+      "Text": "   ===(MISS)>      ",
+      "Color": "Hero"
+    },
+    "ENEMY_ATTACK": {
+      "Text": "   <<<<<({0})=====   ",
+      "Color": "Enemy"
+    },
+    "ENEMY_MISS": {
+      "Text": "      <(MISS)===   ",
+      "Color": "Enemy"
+    },
+    "CONGRATULATION": {
+      "Text": "CONGRATULATION!!!",
+      "Color": "Warning"
+    },
+    "ENEMY": {
+      "Text": "{0}",
+      "Color": "Enemy"
+    },
+    "HAS_BEEN_DEFEATED": {
+      "Text": " has been DEFEATED",
+      "Color": "Notification"
+    },
+    "NEW_LEVEL_1_PART": {
+      "Text": "Gained a new LEVEL!",
+      "Color": "Question"
+    },
+    "NEW_LEVEL_2_PART": {
+      "Text": "You can choose a new class",
+      "Color": "Notification"
+    },
+    "NEW_WEAPON_1_PART": {
+      "Text": "You found a ",
+      "Color": "Notification"
+    },
+    "NEW_WEAPON_2_PART": {
+      "Text": "{0}",
+      "Color": "Loot"
+    },
+    "NEW_WEAPON_3_PART": {
+      "Text": " on the enemy's corpse!",
+      "Color": "Notification"
+    },
+    "WANT_TO_CHANGE": {
+      "Text": "Do you want to change your weapon to a new one?",
+      "Color": "Question"
+    },
+    "NEW_WEAPON_CHOOSE": {
+      "Text": "<- YES   -> NO",
+      "Color": "InputWaiting"
+    },
+    "YOU_ARE_DEAD": {
+      "Text": "YOU ARE DEAD",
+      "Color": "Heading"
+    },
+    "PRESS_TO_RESTART": {
+      "Text": "Press SPACE to one more try",
+      "Color": "InputWaiting"
+    },
+    "WIN_GAME": {
+      "Text": "AWESOME!!! You have defeated all the enemies",
+      "Color": "Warning"
+    },
+    "GAME_OVER": {
+      "Text": "GAME OVER",
+      "Color": "Heading"
+    }
+  }
+}

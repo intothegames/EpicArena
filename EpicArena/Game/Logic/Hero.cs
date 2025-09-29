@@ -5,10 +5,9 @@ namespace TimeToBeEpic.Game.Logic
 {
     public class Hero : Unit
     {
-        private Event _event = new Event();
-
         public int Level { get; private set; } = 0;
         public List<HeroClass> HeroClasses { get; private set; } = new List<HeroClass>();
+
 
         public void InitHero(HeroClass heroClass, UnitStats stats)
         {

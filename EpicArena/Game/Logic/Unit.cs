@@ -1,10 +1,11 @@
 ﻿using TimeToBeEpic.Game.Services;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TimeToBeEpic.Game.Logic
 {
     public abstract class Unit
     {
-        private readonly Event _event = new();
+        protected readonly Event _event = new();
 
         private int _maxHealth;
         private int _stamina;
@@ -84,7 +85,15 @@ namespace TimeToBeEpic.Game.Logic
         public void TakePoisonDamage()
         {
             _poisonDamage++;
-            Health -= _poisonDamage;
+            if (Health - _poisonDamage <= 0)
+            {
+                Health = 0;
+                IsAlive = false;
+            }
+            else
+            {
+                Health -= _poisonDamage;
+            }
         }
 
         public bool IsHit(Unit target)

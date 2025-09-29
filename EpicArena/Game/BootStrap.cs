@@ -8,25 +8,18 @@ namespace TimeToBeEpic.Game
 
         public void Init()
         {
-            HighPriority();
-            WithoutDpendency();
-        }
-        public void StartGame()
-        {
-            Game.StartGame();
-        }
-
-        private void HighPriority()
-        {
+            // HighPriority
             CreateGameContextService<DamageCalculator>();
-        }
 
-        private void WithoutDpendency()
-        {
+            // WithoutDpendency
             CreateGameContextService<ConsoleUI>();
             CreateGameContextService<ConsoleInput>();
 
             CreateGameContextService<DebugLog>();
+        }
+        public void StartGame()
+        {
+            Game.StartGame();
         }
 
         private void CreateGameContextService<T>() where T : IGameService, new()

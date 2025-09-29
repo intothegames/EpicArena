@@ -1,59 +1,104 @@
-﻿namespace TimeToBeEpic.Game.Constants
+﻿using System.Diagnostics;
+using System.Text.Json;
+
+namespace TimeToBeEpic.Game.Constants
 {
     public record TextColor(string Text, ConsoleColor Color);
+
+    public class TextConfig
+    {
+        public Dictionary<string, string> Colors { get; set; } = new();
+        public Dictionary<string, TextEntry> Texts { get; set; } = new();
+    }
+
+    public class TextEntry
+    {
+        public string Text { get; set; } = string.Empty;
+        public string Color { get; set; } = string.Empty;
+    }
+
     static class Text
     {
-        public static readonly ConsoleColor Background = ConsoleColor.Black;
+        private static readonly Dictionary<string, ConsoleColor> _colorMap = new();
+        private static readonly Dictionary<string, TextColor> _texts = new();
 
-        private static readonly ConsoleColor Hero = ConsoleColor.Green;
-        private static readonly ConsoleColor Enemy = ConsoleColor.Red;
-        private static readonly ConsoleColor Heading = ConsoleColor.DarkRed;
-        private static readonly ConsoleColor Info = ConsoleColor.DarkGreen;
-        private static readonly ConsoleColor Notification = ConsoleColor.DarkGray;
-        private static readonly ConsoleColor Neutral = ConsoleColor.DarkGray;
-        private static readonly ConsoleColor Loot = ConsoleColor.Cyan;
-        private static readonly ConsoleColor InputWaiting = ConsoleColor.Yellow;
-        private static readonly ConsoleColor Warning = ConsoleColor.DarkYellow;
-        private static readonly ConsoleColor Question = ConsoleColor.DarkYellow;
+        private static string TEXT_JSON_PATH = @"..\..\..\Game\Json\Text.json";
 
-        public static readonly TextColor WELCOME = new("WELCOME to EPIC ARENA", Heading);
-        public static readonly TextColor START_ABILITIES = new("START ABILITIES", Notification);
-        public static readonly TextColor RANDOM_STATS = new("  {0} Strenght    {1} Agility     {2} Stamina", Info);
-        public static readonly TextColor CHOOSE_DESTINY = new("CHOOSE YOUR DESTINY", Question);
-        public static readonly TextColor HERO_VARIANTS = new("  <- Rogue    v Warrior    -> Barbarian", InputWaiting);
+        static Text()
+        {
+            LoadTexts();
+        }
 
-        public static readonly TextColor LETS_EPIC_COMBAT_BEGIN = new("Let's EPIC COMBAT begin", Heading);
-        //public static readonly TextColor AGILITY_COMPARE = new("{0} has {1} Agility and {2} has {3} Agility\n", Notification);
-        public static readonly TextColor ROUND = new("ROUND {0}", Warning);
-        public static readonly TextColor HERO_PRIORITY = new("{0} goes first!", Hero);
-        public static readonly TextColor ENEMY_PRIORITY = new("{0} goes first!", Enemy);
+        private static void LoadTexts()
+        {
+            try
+            {
+                string json = File.ReadAllText(TEXT_JSON_PATH);
 
-        public static readonly TextColor HERO_BATTLE_STATS = new("{0}  {1}", Hero);
-        public static readonly TextColor ENEMY_BATTLE_STATS = new("{0}  {1}", Enemy);
-        public static readonly TextColor ATTACK_ZONE = new("   =====(!)=====   ", Neutral);
+                var config = JsonSerializer.Deserialize<TextConfig>(json);
 
-        public static readonly TextColor HERO_ATTACK = new("   =====({0})>>>>>   ", Hero);
-        public static readonly TextColor HERO_MISS = new("   ===(MISS)>      ", Hero);
-        public static readonly TextColor ENEMY_ATTACK = new("   <<<<<({0})=====   ", Enemy);
-        public static readonly TextColor ENEMY_MISS = new("      <(MISS)===   ", Enemy);
+                if (config?.Colors != null && config.Texts != null)
+                {
+                    foreach (var color in config.Colors)
+                    {
+                        if (Enum.TryParse<ConsoleColor>(color.Value, out ConsoleColor consoleColor))
+                        {
+                            _colorMap[color.Key] = consoleColor;
+                        }
+                    }
 
-        public static readonly TextColor CONGRATULATION = new("CONGRATULATION!!!", Warning);
-        public static readonly TextColor ENEMY = new("{0}", Enemy);
-        public static readonly TextColor HAS_BEEN_DEFEATED = new(" has been DEFEATED", Notification);
+                    foreach (var text in config.Texts)
+                    {
+                        if (_colorMap.TryGetValue(text.Value.Color, out ConsoleColor color))
+                        {
+                            _texts[text.Key] = new TextColor(text.Value.Text, color);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.Write($"Error loading texts: {ex.Message}");
+            }
+        }
 
-        public static readonly TextColor NEW_LEVEL_1_PART = new("Gained a new LEVEL!", Question);
-        public static readonly TextColor NEW_LEVEL_2_PART = new("You can choose a new class", Notification);
+        public static ConsoleColor Background => ConsoleColor.Black;
 
-        public static readonly TextColor NEW_WEAPON_1_PART = new("You found a ", Notification);
-        public static readonly TextColor NEW_WEAPON_2_PART = new("{0}", Loot);
-        public static readonly TextColor NEW_WEAPON_3_PART = new(" on the enemy's corpse!", Notification);
-        public static readonly TextColor WANT_TO_CHANGE = new("Do you want to change your weapon to a new one?", Question);
-        public static readonly TextColor NEW_WEAPON_CHOOSE = new("<- YES   -> NO", InputWaiting);
+        public static TextColor WELCOME => GetText("WELCOME");
+        public static TextColor START_ABILITIES => GetText("START_ABILITIES");
+        public static TextColor RANDOM_STATS => GetText("RANDOM_STATS");
+        public static TextColor CHOOSE_DESTINY => GetText("CHOOSE_DESTINY");
+        public static TextColor HERO_VARIANTS => GetText("HERO_VARIANTS");
+        public static TextColor LETS_EPIC_COMBAT_BEGIN => GetText("LETS_EPIC_COMBAT_BEGIN");
+        public static TextColor ROUND => GetText("ROUND");
+        public static TextColor HERO_PRIORITY => GetText("HERO_PRIORITY");
+        public static TextColor ENEMY_PRIORITY => GetText("ENEMY_PRIORITY");
+        public static TextColor HERO_BATTLE_STATS => GetText("HERO_BATTLE_STATS");
+        public static TextColor ENEMY_BATTLE_STATS => GetText("ENEMY_BATTLE_STATS");
+        public static TextColor ATTACK_ZONE => GetText("ATTACK_ZONE");
+        public static TextColor HERO_ATTACK => GetText("HERO_ATTACK");
+        public static TextColor HERO_MISS => GetText("HERO_MISS");
+        public static TextColor ENEMY_ATTACK => GetText("ENEMY_ATTACK");
+        public static TextColor ENEMY_MISS => GetText("ENEMY_MISS");
+        public static TextColor CONGRATULATION => GetText("CONGRATULATION");
+        public static TextColor ENEMY => GetText("ENEMY");
+        public static TextColor HAS_BEEN_DEFEATED => GetText("HAS_BEEN_DEFEATED");
+        public static TextColor NEW_LEVEL_1_PART => GetText("NEW_LEVEL_1_PART");
+        public static TextColor NEW_LEVEL_2_PART => GetText("NEW_LEVEL_2_PART");
+        public static TextColor NEW_WEAPON_1_PART => GetText("NEW_WEAPON_1_PART");
+        public static TextColor NEW_WEAPON_2_PART => GetText("NEW_WEAPON_2_PART");
+        public static TextColor NEW_WEAPON_3_PART => GetText("NEW_WEAPON_3_PART");
+        public static TextColor WANT_TO_CHANGE => GetText("WANT_TO_CHANGE");
+        public static TextColor NEW_WEAPON_CHOOSE => GetText("NEW_WEAPON_CHOOSE");
+        public static TextColor YOU_ARE_DEAD => GetText("YOU_ARE_DEAD");
+        public static TextColor PRESS_TO_RESTART => GetText("PRESS_TO_RESTART");
+        public static TextColor WIN_GAME => GetText("WIN_GAME");
+        public static TextColor GAME_OVER => GetText("GAME_OVER");
 
-        public static readonly TextColor YOU_ARE_DEAD = new("YOU ARE DEAD", Heading);
-        public static readonly TextColor PRESS_TO_RESTART = new("Press SPACE to one more try", InputWaiting);
-
-        public static readonly TextColor WIN_GAME = new("AWESOME!!! You have defeated all the enemies", Warning);
-        public static readonly TextColor GAME_OVER = new("GAME OVER", Heading);
+        private static TextColor GetText(string key)
+        {
+            return _texts.TryGetValue(key, out TextColor text) ?
+                text : new TextColor($"MISSING: {key}", ConsoleColor.White);
+        }
     }
 }

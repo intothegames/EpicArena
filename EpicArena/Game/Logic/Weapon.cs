@@ -2,6 +2,14 @@
 
 namespace TimeToBeEpic.Game.Logic 
 {
+    public enum WeaponType
+    {
+        Chopping,   // Рубящий
+        Crushing,   // Дробящий
+        Stabbing,   // Колющий
+        Usual       // Оружие врагов
+    }
+
     public abstract class Weapon : ILootable
     {
         public WeaponType TypeOfWeapon { get; protected set; }

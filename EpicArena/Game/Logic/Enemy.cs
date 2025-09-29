@@ -3,12 +3,18 @@ using TimeToBeEpic.Game.Services;
 
 namespace TimeToBeEpic.Game.Logic
 {
-    
+    public enum EnemyType
+    {
+        Goblin,
+        Skeleton,
+        Slime,
+        Ghost,
+        Golem,
+        Dragon
+    }
 
     public class Enemy : Unit
     {
-        private Event _event = new Event();
-
         public ILootable Loot { get; private set; }
         public EnemyType Type { get; private set; }
 

@@ -79,6 +79,7 @@ namespace TimeToBeEpic.Game.Logic
             return outcomingDamage;
         }
     }
+
     public class StoneSkin : IDefendAbility
     {
         // Получаемый урон снижается на значение выносливости

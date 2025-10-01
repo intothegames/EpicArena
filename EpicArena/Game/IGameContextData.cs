@@ -1,7 +1,7 @@
-﻿using TimeToBeEpic.Game.Logic;
-using TimeToBeEpic.Game.Services;
+﻿using EpicArena.Game.Logic;
+using EpicArena.Game.Services;
 
-namespace TimeToBeEpic.Game
+namespace EpicArena.Game
 {
     public interface IGameContextData
     {

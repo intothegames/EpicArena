@@ -1,6 +1,6 @@
-﻿using TimeToBeEpic.Game.Logic;
+﻿using EpicArena.Game.Logic;
 
-namespace TimeToBeEpic.Game.Services
+namespace EpicArena.Game.Services
 {
     public class ConsoleInput : Input
     {
@@ -38,9 +38,9 @@ namespace TimeToBeEpic.Game.Services
                             Console.WriteLine("Wrong button pressed. Try again!");
                             break;
                     }
-
                 }
             }
+
             return heroSelected;
         }
 
@@ -66,11 +66,14 @@ namespace TimeToBeEpic.Game.Services
                         default:
                             break;
                     }
+
                     isInputAwaiting = false;
                 }
             }
+
             return isRestart;
         }
+
         public override bool WaitForChooseNewWeapon()
         {
             bool isInputAwaiting = true;
@@ -101,6 +104,7 @@ namespace TimeToBeEpic.Game.Services
                     }
                 }
             }
+
             return isNew;
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace TimeToBeEpic.Game.States
+﻿namespace EpicArena.Game.States
 {
     class StateMachine
     {

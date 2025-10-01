@@ -1,7 +1,6 @@
-﻿using TimeToBeEpic.Game.Constants;
-using TimeToBeEpic.Game.Logic;
+﻿using EpicArena.Game.Logic;
 
-namespace TimeToBeEpic.Game.Services
+namespace EpicArena.Game.Services
 {
     public class DamageCalculator : IGameService
     {
@@ -25,7 +24,6 @@ namespace TimeToBeEpic.Game.Services
 
         private int CalculateAttackerAbilities(Unit attacker, Unit defender, int damage)
         {
-            // damage += attacker.UnitAbilities.OfType<IAttackAbility>().Sum(a => a.ApplyAttackModifier(attacker, defender, damage));
             int newDamage = damage;
 
             foreach (var ability in attacker.UnitAbilities)
@@ -42,7 +40,6 @@ namespace TimeToBeEpic.Game.Services
 
         private int CalculateDefenderAbilities(Unit attacker, Unit defender, int damage)
         {
-            // damage += defender.UnitAbilities.OfType<IDefendAbility>().Sum(d => d.ApplyDefendModifier(attacker, defender, damage));
             int newDamage = damage;
 
             foreach (var ability in defender.UnitAbilities)

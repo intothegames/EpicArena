@@ -1,7 +1,6 @@
-﻿using TimeToBeEpic.Game.Services;
-using static System.Net.Mime.MediaTypeNames;
+﻿using EpicArena.Game.Services;
 
-namespace TimeToBeEpic.Game.Logic
+namespace EpicArena.Game.Logic
 {
     public abstract class Unit
     {
@@ -85,6 +84,7 @@ namespace TimeToBeEpic.Game.Logic
         public void TakePoisonDamage()
         {
             _poisonDamage++;
+
             if (Health - _poisonDamage <= 0)
             {
                 Health = 0;

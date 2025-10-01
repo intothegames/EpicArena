@@ -1,6 +1,6 @@
-﻿using TimeToBeEpic.Game.Services;
+﻿using EpicArena.Game.Services;
 
-namespace TimeToBeEpic.Game
+namespace EpicArena.Game
 {
     class BootStrap
     {

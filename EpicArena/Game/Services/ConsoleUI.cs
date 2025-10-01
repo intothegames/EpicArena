@@ -1,7 +1,7 @@
-﻿using TimeToBeEpic.Game.Constants;
-using TimeToBeEpic.Game.Logic;
+﻿using EpicArena.Game.Constants;
+using EpicArena.Game.Logic;
 
-namespace TimeToBeEpic.Game.Services
+namespace EpicArena.Game.Services
 {
     public class ConsoleUI : UI
     {
@@ -30,12 +30,6 @@ namespace TimeToBeEpic.Game.Services
             WriteLineOnCenter(Text.LETS_EPIC_COMBAT_BEGIN);
 
             Console.WriteLine();
-
-            //WriteLineOnCenter((Text.AGILITY_COMPARE, new object[] 
-            //{
-            //    hero.HeroClasses[0].GetType().Name, hero.Agility,
-            //    enemy.Type, enemy.Agility
-            //}));
 
             WriteLineOnCenter((Text.ROUND, new object[] { round }));
 

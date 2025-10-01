@@ -1,6 +1,6 @@
-﻿using TimeToBeEpic.Game.Constants;
+﻿using EpicArena.Game.Constants;
 
-namespace TimeToBeEpic.Game.Logic 
+namespace EpicArena.Game.Logic 
 {
     public enum WeaponType
     {

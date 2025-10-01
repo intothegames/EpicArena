@@ -1,6 +1,6 @@
-﻿using TimeToBeEpic.Game.Services;
+﻿using EpicArena.Game.Services;
 
-namespace TimeToBeEpic.Game.States
+namespace EpicArena.Game.States
 {
     class RoundDefeat(IGameContextData data, StateMachine stateMachine) : GameState(data, stateMachine)
     {

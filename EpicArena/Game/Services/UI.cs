@@ -1,6 +1,6 @@
-﻿using TimeToBeEpic.Game.Logic;
+﻿using EpicArena.Game.Logic;
 
-namespace TimeToBeEpic.Game.Services
+namespace EpicArena.Game.Services
 {
     public abstract class UI : IGameService
     {

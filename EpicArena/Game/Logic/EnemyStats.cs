@@ -1,11 +1,11 @@
-﻿namespace TimeToBeEpic.Game.Logic
+﻿namespace EpicArena.Game.Logic
 {
     public class EnemyStats
     {
         public int Health;
-        public UnitStats? ClassUnitStats;
-        public Weapon? ClassWeapon;
-        public ILootable? ClassLoot;
-        public List<IAbility>? ClassAbility;
+        public UnitStats ClassUnitStats;
+        public Weapon ClassWeapon;
+        public ILootable ClassLoot;
+        public List<IAbility> ClassAbility;
     }
 }

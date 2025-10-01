@@ -1,7 +1,7 @@
-﻿using TimeToBeEpic.Game.Constants;
-using TimeToBeEpic.Game.Services;
+﻿using EpicArena.Game.Constants;
+using EpicArena.Game.Services;
 
-namespace TimeToBeEpic.Game.Logic
+namespace EpicArena.Game.Logic
 {
     public enum EnemyType
     {

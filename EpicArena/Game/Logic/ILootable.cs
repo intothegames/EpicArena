@@ -1,4 +1,4 @@
-﻿namespace TimeToBeEpic.Game.Logic
+﻿namespace EpicArena.Game.Logic
 {
     public interface ILootable { }
 }

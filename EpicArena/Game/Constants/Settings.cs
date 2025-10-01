@@ -1,4 +1,4 @@
-﻿namespace TimeToBeEpic.Game.Constants
+﻿namespace EpicArena.Game.Constants
 {
     public static class Settings
     {

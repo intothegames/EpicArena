@@ -1,6 +1,6 @@
-﻿using TimeToBeEpic.Game;
+﻿using EpicArena.Game;
 
-namespace TimeToBeEpic
+namespace EpicArena
 {
     internal class Program
     {

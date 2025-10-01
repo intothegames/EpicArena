@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
-using TimeToBeEpic.Game.Constants;
-using TimeToBeEpic.Game.Logic;
+using EpicArena.Game.Constants;
+using EpicArena.Game.Logic;
 
-namespace TimeToBeEpic.Game.Services
+namespace EpicArena.Game.Services
 {
     public enum DebugEvent
     {

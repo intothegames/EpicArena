@@ -1,7 +1,6 @@
-﻿using TimeToBeEpic.Game.Constants;
-using TimeToBeEpic.Game.Services;
+﻿using EpicArena.Game.Services;
 
-namespace TimeToBeEpic.Game.Logic
+namespace EpicArena.Game.Logic
 {
     public class Hero : Unit
     {
@@ -21,16 +20,16 @@ namespace TimeToBeEpic.Game.Logic
             HeroClasses.Add(newHeroClass);
 
             int newHeroClassLevel = HeroClasses.Count(h => h.GetType() == newHeroClass.GetType());
-            IAbility newAbility = newHeroClass.stats.ClassAbility[newHeroClassLevel - 1];
+            IAbility newAbility = newHeroClass.Stats.ClassAbility[newHeroClassLevel - 1];
             UnitAbilities.Add(newAbility);
 
             if (newAbility is IPermanentAbility permanentAbility)
                 ApplyPermanentAbility(permanentAbility.StatsToInkrease);
 
             if(Level == 0)
-                CurrentWeapon = newHeroClass.stats.ClassWeapon;
+                CurrentWeapon = newHeroClass.Stats.ClassWeapon;
 
-            MaxHealth += newHeroClass.stats.HealthLevelInkrease;
+            MaxHealth += newHeroClass.Stats.HealthLevelInkrease;
 
             Level++;
 

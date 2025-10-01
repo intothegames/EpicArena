@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text.Json;
 
-namespace TimeToBeEpic.Game.Constants
+namespace EpicArena.Game.Constants
 {
     public record TextColor(string Text, ConsoleColor Color);
 

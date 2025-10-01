@@ -1,8 +1,7 @@
-﻿using TimeToBeEpic.Game.Constants;
-using TimeToBeEpic.Game.Logic;
-using TimeToBeEpic.Game.Services;
+﻿using EpicArena.Game.Logic;
+using EpicArena.Game.Services;
 
-namespace TimeToBeEpic.Game.States
+namespace EpicArena.Game.States
 {
     class RoundPreparing(IGameContextData gameData, StateMachine stateMachine) : GameState(gameData, stateMachine)
     {

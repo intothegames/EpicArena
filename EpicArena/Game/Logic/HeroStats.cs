@@ -1,9 +1,9 @@
-﻿namespace TimeToBeEpic.Game.Logic
+﻿namespace EpicArena.Game.Logic
 {
     public class HeroStats
     {
         public int HealthLevelInkrease;
-        public Weapon? ClassWeapon;
-        public List<IAbility>? ClassAbility;
+        public Weapon ClassWeapon;
+        public List<IAbility> ClassAbility;
     }
 }

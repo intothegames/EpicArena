@@ -1,6 +1,6 @@
-﻿using TimeToBeEpic.Game.Logic;
+﻿using EpicArena.Game.Logic;
 
-namespace TimeToBeEpic.Game.Constants
+namespace EpicArena.Game.Constants
 {
     public static class Values
     {

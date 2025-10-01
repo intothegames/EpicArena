@@ -1,4 +1,4 @@
-﻿namespace TimeToBeEpic.Game.Services
+﻿namespace EpicArena.Game.Services
 {
     public interface IGameService { }
 }

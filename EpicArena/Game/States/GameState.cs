@@ -1,11 +1,11 @@
-﻿using TimeToBeEpic.Game.Services;
+﻿using EpicArena.Game.Services;
 
-namespace TimeToBeEpic.Game.States
+namespace EpicArena.Game.States
 {
     abstract class GameState(IGameContextData gameData, StateMachine stateMachine)
     {
         protected IGameContextData _gameData = gameData;
-        protected StateMachine? _stateMachine = stateMachine;
+        protected StateMachine _stateMachine = stateMachine;
         protected UI? _UI = (ConsoleUI?)gameData.Services.GetService<ConsoleUI>();
 
         public abstract void OnEnter();

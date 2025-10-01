@@ -1,8 +1,7 @@
-﻿using TimeToBeEpic.Game.Constants;
-using TimeToBeEpic.Game.Logic;
-using TimeToBeEpic.Game.Services;
+﻿using EpicArena.Game.Logic;
+using EpicArena.Game.Services;
 
-namespace TimeToBeEpic.Game.States
+namespace EpicArena.Game.States
 {
     class PlayerTurn(IGameContextData data, StateMachine stateMachine) : GameState(data, stateMachine)
     {
